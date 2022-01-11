@@ -25,7 +25,7 @@ public class OperatorController {
     @GetMapping("/date/{year}/{month}")
     public ResponseEntity<List<OperatorDto>> getAllOperators(@PathVariable("year") String year
             , @PathVariable("month") Integer month) {
-        LocalDate date = LocalDate.parse(year + "-" + "0" + month + "-01");
+        LocalDate date = LocalDate.parse(year + "-0" + month + "-" + "01");
         List<OperatorDto> operators = operatorService.findAllOperators(date, month);
         return new ResponseEntity<>(operators, HttpStatus.OK);
     }

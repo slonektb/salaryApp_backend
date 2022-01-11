@@ -12,8 +12,8 @@ public class DetailSalaryDto  {
     private int id;
     private String fullName;
     private List<DetailSalary> salaries;
-    private double begin;
-    private double end;
+//    private double begin;
+//    private double end;
 
     public String getFullName() {
         return fullName;
@@ -44,21 +44,21 @@ public class DetailSalaryDto  {
         this.id = id;
     }
 
-    public double getBegin() {
-        return begin;
-    }
-
-    public void setBegin(double begin) {
-        this.begin = begin;
-    }
-
-    public double getEnd() {
-        return end;
-    }
-
-    public void setEnd(double end) {
-        this.end = end;
-    }
+//    public double getBegin() {
+//        return begin;
+//    }
+//
+//    public void setBegin(double begin) {
+//        this.begin = begin;
+//    }
+//
+//    public double getEnd() {
+//        return end;
+//    }
+//
+//    public void setEnd(double end) {
+//        this.end = end;
+//    }
 
     public double getTotal() {
         return total;

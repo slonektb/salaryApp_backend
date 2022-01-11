@@ -1,12 +1,6 @@
 package ru.callinsight.backendSalary.service;
 
 import org.springframework.stereotype.Service;
-import ru.callinsight.backendSalary.dto.OperatorDto;
-import ru.callinsight.backendSalary.model.Operator;
-import ru.callinsight.backendSalary.model.Salary;
-import ru.callinsight.backendSalary.repo.OperatorJDBC;
-
-import java.util.List;
 
 
 @Service
