@@ -22,20 +22,16 @@ public class OperatorController {
         this.operatorService = operatorService;
     }
 
-    @GetMapping("/date/{year}/{month}")
-    public ResponseEntity<List<OperatorDto>> getAllOperators(@PathVariable("year") String year
+    @GetMapping("/{year}/{month}")
+    public ResponseEntity<List<OperatorDto>> findAllOperators(@PathVariable("year") String year
             , @PathVariable("month") Integer month) {
-        LocalDate date = LocalDate.parse(year + "-0" + month + "-" + "01");
-        List<OperatorDto> operators = operatorService.findAllOperators(date, month);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-M-dd");
+        String s = year + "-" + month + "-" + "01";
+        LocalDate date = LocalDate.parse(s, formatter);
+
+        List<OperatorDto> operators = operatorService.findAllOperators(date);
         return new ResponseEntity<>(operators, HttpStatus.OK);
     }
-
-//    @GetMapping("/date/{year}/{month}")
-//    public ResponseEntity<List<Operator>> findTotalHoursForOperators(@PathVariable("year") Integer year
-//            , @PathVariable("month") Integer month) {
-//        List<Operator> operators = operatorService.findTotalHoursForOperators(year, month);
-//        return new ResponseEntity<>(operators, HttpStatus.OK);
-//    }
 
     //Метод пока не используется
     @GetMapping("/find/{id}")

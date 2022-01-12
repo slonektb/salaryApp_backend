@@ -11,5 +11,4 @@ import java.util.List;
 
 public interface SalaryRepo extends JpaRepository<Salary, Integer> {
     List<Salary> findAllByOperatorIdAndDateBetween(Integer id, LocalDate minusMonths, LocalDate now);
-    List<Salary> findAllByDate(LocalDate date);
 }

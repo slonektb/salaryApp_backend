@@ -19,13 +19,11 @@ import java.util.List;
 public class DetailSalaryService {
     private static final Logger LOGGER = LoggerFactory.getLogger(DetailSalaryService.class);
     private final DetailSalaryRepo detailSalaryRepo;
-    private final SalaryRepo salaryRepo;
     private final OperatorRepo operatorRepo;
 
     @Autowired
-    public DetailSalaryService(DetailSalaryRepo detailSalaryRepo, SalaryRepo salaryRepo, OperatorRepo operatorRepo) {
+    public DetailSalaryService(DetailSalaryRepo detailSalaryRepo, OperatorRepo operatorRepo) {
         this.detailSalaryRepo = detailSalaryRepo;
-        this.salaryRepo = salaryRepo;
         this.operatorRepo = operatorRepo;
     }
 

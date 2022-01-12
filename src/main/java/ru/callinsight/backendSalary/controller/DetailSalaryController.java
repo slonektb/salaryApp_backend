@@ -33,7 +33,7 @@ public class DetailSalaryController {
     @GetMapping("/date/{year}/{month}/{day}")
     public ResponseEntity<List<DetailSalaryDto>> findAllDetailSalary(@PathVariable("year") String year
             , @PathVariable("month") Integer month, @PathVariable("day") Integer day) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-M-d");
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-M-dd");
         String s = year + "-" + month + "-" + day;
         LocalDate date = LocalDate.parse(s, formatter);
         List<DetailSalaryDto> detailSalaryDtos = detailSalaryService.findAllDetailSalary(date);

@@ -27,7 +27,7 @@ public class OperatorService {
         this.salaryRepo = salaryRepo;
     }
 
-    public List<OperatorDto> findAllOperators(LocalDate date, Integer month) {
+    public List<OperatorDto> findAllOperators(LocalDate date) {
         List<Operator> operators = operatorRepo.findAll();
         LOGGER.info("operators = " + operators);
         List<OperatorDto> operatorDtos = new ArrayList<>();
@@ -35,7 +35,7 @@ public class OperatorService {
             List<Salary> salaries = salaryRepo.findAllByOperatorIdAndDateBetween(
                     e.getId(),
 //                    LocalDate.now().minusMonths(1L), LocalDate.now()
-                    LocalDate.now().minusMonths(month), date
+                    date, date.plusMonths(1L).minusDays(1L)
             );
             LOGGER.info("operators from findAllOperators" + salaries.toString() + " " + e.getId());
             OperatorDto operatorDto = new OperatorDto();
