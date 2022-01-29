@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.Date;
+import java.util.Optional;
 
 @Entity
 @Table(name = "salary")
@@ -16,6 +17,7 @@ public class Salary implements Serializable {
     @ManyToOne (optional=false, cascade=CascadeType.ALL)
 //    @JoinColumn (name="operator_id", insertable = false, updatable = false)
     @JoinColumn (name="operator_id")
+    //private Optional<Operator> operator;
     private Operator operator;
 
 //    @Column(name = "operator_id")
@@ -41,10 +43,12 @@ public class Salary implements Serializable {
         this.id = id;
     }
 
+    //public Optional<Operator> getOperator() {
     public Operator getOperator() {
         return operator;
     }
 
+    //public void setOperator(Optional<Operator> operator) {
     public void setOperator(Operator operator) {
         this.operator = operator;
     }

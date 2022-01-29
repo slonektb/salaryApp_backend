@@ -8,5 +8,5 @@ import java.util.Optional;
 public interface OperatorRepo extends JpaRepository<Operator, Integer> {
     void deleteOperatorById(int id);
 
-    Optional<Operator> findOperatorById(Integer id);
+    Operator findOperatorById(Integer id);
 }

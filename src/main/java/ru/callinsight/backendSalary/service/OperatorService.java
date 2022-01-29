@@ -65,8 +65,8 @@ public class OperatorService {
     }
 
     public Operator findById(Integer id){
-        return operatorRepo.findOperatorById(id)
-                .orElseThrow(()-> new OperatorNotFoundException("User by id " + id + " was not found"));
+        return operatorRepo.findOperatorById(id);
+            //  .orElseThrow(()-> new OperatorNotFoundException("User by id " + id + " was not found"));
     }
 
     public Operator updateOperator(Operator operator) {

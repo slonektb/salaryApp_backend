@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ru.callinsight.backendSalary.dto.DetailSalaryDto;
+import ru.callinsight.backendSalary.dto.SalaryForUpdateDto;
 import ru.callinsight.backendSalary.model.DetailSalary;
 import ru.callinsight.backendSalary.service.DetailSalaryService;
 
@@ -45,4 +46,18 @@ public class DetailSalaryController {
         List<DetailSalary> detailSalaries = detailSalaryService.allDetailSalary();
         return new ResponseEntity<>(detailSalaries, HttpStatus.OK);
     }
+
+
+    @PostMapping("/details/update")
+    public ResponseEntity<Void> updateDetails(@RequestBody List<SalaryForUpdateDto> salaryForUpdateDtos) {
+
+        System.out.println(salaryForUpdateDtos.toString());
+
+        String state = detailSalaryService.updateDS(salaryForUpdateDtos);
+
+        System.out.println(state);
+
+        return ResponseEntity.ok().build();      //ResponseEntity<>(HttpStatus.OK);
+    }
+
 }
